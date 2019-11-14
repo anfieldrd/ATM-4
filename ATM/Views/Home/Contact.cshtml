@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title</h2>
+
+<address>
+    <strong>Name: </strong>
+    Luka Vugdelija<br />
+    <strong>Address: </strong>Miroševečki brijeg 5, Zagreb<br />
+    <strong>Phone: </strong> +385 99 690 7362<br />
+    <strong>E-mail: </strong>   <a href="mailto:luka.vugdelija22@gmail.com">luka.vugdelija22@gmail.com</a><br />
+</address>
+
+
+@*<div id="formSection">
+    <h3>@ViewBag.TheMessage</h3>
+    <form method="post" id="contactForm">
+        <textarea name="message" id="message" maxlength="15000" data-bind="value:message, valueUpdate:'input'"></textarea>
+        <input type="submit" value="send" />
+        <span data-bind="text:charactersRemaining"></span> characters left remaining
+    </form>
+    <img src="~/Content/Images/Loading.gif" id="progress" style="display:none;" />
+
+</div>
+@section scripts{
+    <script src="~/Scripts/knockout-3.5.1.js"></script>
+    <script>
+        function ContactViewModel() {
+            var self = this;
+            self.message = ko.observable('');
+            self.charactersRemaining = ko.computed(function () {
+                return 150 - self.message().length;
+            })
+        }
+        ko.applyBindings(new ContactViewModel());
+    </script>
+    <script>
+        $('#contactForm').submit(function () {
+            $('#progress').show();
+            $.post('', { message: $('#message').val() })
+                .done(function (response) {
+                    setTimeout(function () { $('#formSection').html(response); }, 2000);
+                });
+            return false;
+        });
+    </script>
+}*@
+
+@*<div id="formSection">
+        <h3>@ViewBag.TheMessage</h3>
+        @using (Ajax.BeginForm(new AjaxOptions
+        {
+            HttpMethod = "post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "formSection"
+        }))
+        {
+    <textarea name="message"></textarea>
+            <input type="submit" value="Send" />
+        }
+    </div>
+
+    @section scripts{
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    }*@

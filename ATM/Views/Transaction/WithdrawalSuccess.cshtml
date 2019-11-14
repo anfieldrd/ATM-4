@@ -1,0 +1,33 @@
+﻿@model ATM.Models.Transaction
+
+@{
+    ViewBag.Title = "WithdrawalSuccess";
+}
+
+<h2>Withdrawal succeeded</h2>
+<p></p>
+<div>
+    <div>You have successfully withdrawn @String.Format("{0:c}", -Model.Amount) from your account - @Model.CheckingAccount.Name, account number @Model.CheckingAccount.AccountNumber</div>
+    <hr />
+    <p></p>
+    <p>Your new balance is:</p>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingAccount.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingAccount.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingAccount.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingAccount.Balance)
+        </dd>
+
+    </dl>
+</div>
+
